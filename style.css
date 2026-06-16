@@ -1,0 +1,502 @@
+:root {
+    --dark: #2B2B2B;
+    --cream: #FFF8EE;
+    --gold: #C9A227;
+    --olive: #6D8A04;
+    --red: #8B1E1E;
+    --text: #333333;
+}body {
+   font-family: 'Lora', serif; /* Elegante Serifenschrift für den Text */
+   margin: 0; /* Entfernt den Standardabstand um den Körper */
+   padding: 0; /* Entfernt das Standardpadding */
+   color: var(--text); /* Dunkles Grau für den Text */
+   background-color: var(--dark); /* Sehr helles Grau für den Hintergrund */
+   line-height: 1.8; /* Zeilenhöhe für bessere Lesbarkeit */
+}
+
+/* Main Content */
+main {
+   padding: 30px; /* Innenabstand für den Hauptinhalt */
+}
+.center-content {
+   text-align: center;
+}
+/* Container für den gesamten Inhalt */
+.alles {
+   width: 90%; /* Setzt die Breite auf 90% des Elternelements */
+   margin: auto; /* Zentriert den Container */
+   background-color:var(--cream); /* Weißer Hintergrund */
+   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Eleganter Schatten für Tiefe */
+   border-radius: 20px; /* Abgerundete Ecken */
+   overflow: hidden; /* Verhindert, dass Inhalte außerhalb des Containers erscheinen */
+   padding: 15px; /* Innenabstand */
+}
+
+.section {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.section.visible {
+    opacity: 1;
+}
+
+a:hover {
+   color: #6D8A04; /* Olivgrün, wenn der Link mit der Maus überfahren wird */
+   text-decoration: underline; /* Unterstreichung beim Hover */
+}
+
+/* Header */
+header {
+   background: linear-gradient(rgba(43,43,43,0.95), rgba(43,43,43,0.95));
+   color: #FFFFFF;
+   padding: 0;
+   text-align: center;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+   margin: 0;
+   border-radius: 18px 18px 0 0;
+   overflow: hidden;
+}
+
+header .header-content {
+   display: flex;
+   align-items: stretch;
+   justify-content: space-between;
+   width: 100%;
+ min-height: 260px;
+}
+
+header img.header-imageleft {
+	width: 180px;
+	height: auto;
+	object-fit: contain;
+	padding: 25px;
+}
+
+header img.header-imageright {
+width: 320px;
+   height: auto;
+   object-fit: cover;
+   display: block;
+}
+
+header .text-content {
+   flex: 1;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   text-align: center;
+   padding: 25px;
+}
+
+header h1 {
+   font-size: 3rem;
+   margin: 0;
+   font-family: 'Playfair Display', serif;
+   color: #F8E6A0;
+}
+
+header p {
+   font-style: italic;
+   font-size: 1.4rem;
+   margin-top: 10px;
+   color: #F5F5F5;
+}
+@media (max-width: 768px) {
+   header .header-content {
+      flex-direction: column;
+      min-height: auto;
+   }
+
+   header img.header-imageleft {
+      width: 100%;
+     height: 180px;
+   
+   }
+
+   header .text-content {
+      padding: 20px;
+   }
+
+   header img.header-imageright {
+      width: 100%;
+      height: 180px;
+   }
+}
+}
+/* Navigation */
+nav {
+   position: sticky;
+   top: 0;
+   z-index: 1000;
+   margin: 0 25px 35px 25px;
+   border-radius: 0 0 18px 18px;
+   overflow: hidden;
+   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+   background-color: var(--gold);
+}
+
+nav ul {
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   list-style-type: none;
+   margin: 0;
+   padding: 10px 0;
+   background-color: var(--gold);
+   border-radius: 0 0 18px 18px;
+}
+
+}
+
+nav ul li {
+   margin: 5px 10px; /* Abstand zwischen den Listenelementen */
+}
+
+nav ul li a {
+	color: #2B2B2B;
+	font-size: 1.1rem;
+	font-weight: bold;
+	padding: 10px 18px;
+	text-decoration: none;
+}
+
+nav ul li a:hover {
+   background-color: var(--olive);
+   color: #FFFFFF;
+   border-radius: 10px;
+   text-decoration: none;
+}
+
+
+/* Abschnitt */
+section {
+   margin-bottom: 40px; /* Abstand unter den Abschnitten */
+   padding: 30px; /* Innenabstand */
+   background-color: #FFFDF8; /* Weißer Hintergrund */
+   border-radius: 18px; /* Abgerundete Ecken */
+   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); /* Schatten für die Abschnitte */
+}
+
+section h2 {
+   color: var(--red); /* Olivgrün für die Überschriften */
+   font-size: 2rem; /* Größere Schriftgröße */
+   margin-bottom: 5px; /* Abstand unter der Überschrift */
+   font-family: 'Playfair Display', serif; /* Elegante Schriftart für die Überschrift */
+}
+
+section p {
+   font-size: 1.25em; /* Etwas größere Schriftgröße für den Text */
+   color: #4A4A4A; /* Dunkelgrau für den Text */
+}
+
+/* Speisekarte */
+#speisekarte {
+   background-color: #FBFBFB; /* Sehr helles Grau für den Hintergrund */
+   text-align: center; /* Zentriert den Text */
+   padding: 40px 20px; /* Innenabstand */
+   padding-bottom: 60px; /* Erhöhter Abstand unten für mehr Platz */
+}
+#about {
+	margin-top: 30px;
+   background-image: url("background12.jpeg");
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   padding: 40px 20px;
+   text-align: center;
+   position: relative;
+}  
+.about-box {
+   margin: 0 auto;
+   padding: 35px;
+   background-color: rgba(255, 248, 238, 0.25);
+   backdrop-filter: blur(4px);
+   border-radius: 18px;
+   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.50);
+}
+.about-box h2 {
+   color: var(--red);
+   margin-top: 0;
+}
+
+.about-box p {
+   color: black;
+   font-size: 2.5 rem;
+   font-weight: 600;
+} 
+
+#about {
+   padding: 50px 15px;
+}
+
+.about-box {
+   padding: 25px 18px;
+}
+
+.about-box p {
+   font-size: 1.05rem;
+} 
+#bilderwechsel {
+   background-color: #FFFDF8;
+   text-align: center;
+   padding: 40px 20px 60px;
+   border-radius: 12px;
+   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+#bilderwechsel h2 {
+   color: var(--red);
+   font-size: 2rem;
+   margin-bottom: 25px;
+   font-family: 'Playfair Display', serif;
+}
+
+.slider {
+   width: 100%;
+   max-width: 900px;
+   margin: 0 auto;
+   overflow: hidden;
+   border-radius: 18px;
+   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+   background-color: #2B2B2B;
+}
+
+.slides {
+   display: flex;
+   align-items: center;
+   width: 700%;
+   animation: slideShow7 20s infinite ;
+}
+
+.slides img {
+   width: 14.2857%;
+    max-height: 420px;
+   height: auto;
+   object-fit: contain;
+   display: block;
+}
+@keyframes slideShow7 {
+   0%, 10% {
+      transform: translateX(0);
+   }
+
+   14%, 24% {
+      transform: translateX(-14.2857%);
+   }
+
+   28%, 38% {
+      transform: translateX(-28.5714%);
+   }
+
+   42%, 52% {
+      transform: translateX(-42.8571%);
+   }
+
+   56%, 66% {
+      transform: translateX(-57.1428%);
+   }
+
+   70%, 80% {
+      transform: translateX(-71.4285%);
+   }
+
+   84%, 94% {
+      transform: translateX(-85.7142%);
+   }
+
+   100% {
+      transform: translateX(0);
+   }
+}
+
+.speisekarte-gallery {
+   display: grid; /* Grid-Layout für die Galerie */
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Dynamische Spaltenanzahl, die sich an den verfügbaren Platz anpasst */
+   gap: 20px; /* Abstand zwischen den Karten */
+   margin-top: 30px; /* Abstand oben */
+}
+
+.speisekarte-item {
+   position: relative; /* Positionierung für das Overlay */
+   overflow: hidden; /* Verhindert, dass Inhalte außerhalb des Containers erscheinen */
+   border-radius: 18px; /* Abgerundete Ecken für die Karten */
+   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Schatten für die Karten */
+   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Sanfte Übergänge für Hover-Effekte */
+   background: #FFFFFF; /* Weißer Hintergrund */
+}
+
+.speisekarte-item img {
+   width: 100%; /* Bild füllt die gesamte Breite des Containers */
+   height: 300px; /* Proportionale Bildhöhe */
+   object-fit: cover; /* Bild wird zugeschnitten, um den Container zu füllen */
+   border: none; /* Entfernt den Rand um das Bild */
+   border-radius: 10px; /* Abrundung der Ecken */
+   display: block; /* Verhindert Lücken unter Bildern */
+   transition: filter 0.3s ease;
+}
+
+.speisekarte-item:hover img {
+   filter: brightness(0.75);
+}
+
+.speisekarte-item p {
+   position: absolute; /* Absolute Positionierung innerhalb des Containers */
+   top: 50%; /* Zentriert den Text vertikal */
+   left: 50%; /* Zentriert den Text horizontal */
+   transform: translate(-50%, -50%); /* Vollständige Zentrierung */
+   background-color: rgba(43, 43, 43, 0.75); /* Hintergrund für besseren Kontrast */
+   color:  #F8E6A0; /* Goldene Farbe für den Text */
+   padding: 10px 15px;
+   border-radius: 8px;
+   font-size: 1.1rem;
+   text-align: center; /* Text wird zentriert */
+   min-height: 40px; /* Mindesthöhe für jedes Item */
+   width: 70%; /* Stellt sicher, dass der Text nicht zu breit wird */
+     font-family: 'Playfair Display', serif;
+}
+
+.speisekarte-item:hover {  
+	transition: transform 0.4s ease, box-shadow 0.4s ease;
+	transform: translateY(-5px) scale(1.03); /* Leichtes Heben und Vergrößern beim Hover */
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Größerer Schatten beim Hover */
+}
+
+.speisekarte-item:hover p {
+   background-color: var(--red);
+   color: #FFFFFF;
+}
+
+#standort{
+	background-color: #FBFBFB; /* Sehr helles Grau für den Hintergrund */
+	text-align: center; /* Zentriert den Text */
+	padding: 40px 20px; /* Innenabstand */
+	padding-bottom: 60px; /* Erhöhter Abstand unten für mehr Platz */
+}
+
+#oeffnungszeiten{
+	background-color: #FBFBFB; /* Sehr helles Grau für den Hintergrund */
+	text-align: center; /* Zentriert den Text */
+	padding: 40px 20px; /* Innenabstand */
+	padding-bottom: 60px; /* Erhöhter Abstand unten für mehr Platz */
+   }
+
+#kontakt{
+	background-color: #FBFBFB; /* Sehr helles Grau für den Hintergrund */
+	text-align: center; /* Zentriert den Text */
+	padding: 20px 20px; /* Innenabstand */
+	padding-bottom: 60px; /* Erhöhter Abstand unten für mehr Platz */
+}
+#social-media {
+    background-color: #FBFBFB; /* Heller Hintergrund für den Social-Media-Bereich */
+    text-align: center; /* Textzentrierung */
+	padding: 20px 20px; /* Etwas Abstand rund um den Bereich */
+	padding-bottom: 60px; /* Erhöhter Abstand unten für mehr Platz */
+
+}
+
+/* Styling für die Überschrift */
+#social-media h2 {
+    font-size: 2rem; /* Größere Schriftgröße für die Überschrift */
+    color: var(--red);  /* Olivgrün für die Überschriften */
+	margin-bottom: 15px; /* Abstand unter der Überschrift */
+	font-family: 'Playfair Display', serif; /* Elegante Schriftart für die Überschrift */
+}
+
+
+
+/* Styling für die Icons */
+.Facebook {
+    width:80px; /* Größe der Icons */
+    height: 80px; /* Höhe der Icons */
+    object-fit: cover; /* Erhält die Proportionen der Bilder */
+}
+.instagram{
+	width:80px;
+	height:80px;
+	object-fit:cover;
+}
+/* Hover-Effekt für die Icons */
+.social-icon a {
+   text-decoration: none;
+   display: inline-block;
+   margin: 0 10px;
+}
+
+.social-icon a:hover {
+   text-decoration: none;
+}
+
+/* seiten ende */ 
+footer {
+   background-color: #333333; /* Dunkelgrau für den Footer */
+   color: #FFFFFF; /* Weißer Text */
+   text-align: center; /* Zentriert den Text */
+   padding: 10px; /* Innenabstand */
+   font-size: 0.9rem; /* Kleinere Schriftgröße */
+ 
+}
+.reserve-button {
+   display: inline-block;
+   margin-top: 20px;
+   background-color: var(--red);
+   color: #FFFFFF;
+   padding: 12px 25px;
+   border-radius: 30px;
+   text-decoration: none;
+   font-weight: bold;
+   font-size: 1.1rem;
+}
+
+.reserve-button:hover {
+   background-color: var(--olive);
+   color: #FFFFFF;
+   text-decoration: none;
+}
+
+@media (max-width: 768px) {
+   main {
+      padding: 10px;
+   }
+
+   .alles {
+      width: 100%;
+      border-radius: 0;
+      padding: 0;
+   }
+
+   header h1 {
+      font-size: 2.2rem;
+   }
+
+   header p {
+      font-size: 1.2rem;
+   }
+
+   header img.header-imageleft {
+      width: 220px;
+      height: auto;
+   }
+
+   nav ul {
+      flex-direction: column;
+      align-items: center;
+   }
+
+   nav ul li {
+      margin: 4px 0;
+   }
+
+   nav ul li a {
+      font-size: 1rem;
+      display: block;
+   }
+
+   section p {
+      font-size: 1.1rem;
+   }
+
+   .speisekarte-gallery {
+      grid-template-columns: 1fr;
+   }
+}

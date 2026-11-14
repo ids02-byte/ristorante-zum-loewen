@@ -756,3 +756,35 @@ footer {
     padding: 14px 10px !important;
 }
 
+
+/* Google Maps: nur nach ausdrücklicher Einwilligung laden */
+.map-consent-placeholder {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+    border: 1px solid rgba(43, 43, 43, 0.2);
+    background-color: var(--cream);
+}
+.map-consent-placeholder p {
+    margin: 0 0 12px;
+}
+.map-consent-placeholder button {
+    border: 0;
+    cursor: pointer;
+}
+.map-consent-frame iframe {
+    display: block;
+    width: 100%;
+    height: 300px;
+}
+.map-consent-revoke {
+    margin-top: 12px;
+    padding: 10px 18px;
+    border: 1px solid var(--red);
+    color: var(--red);
+    background: transparent;
+    cursor: pointer;
+}
+.map-consent [hidden] {
+    display: none !important;
+}

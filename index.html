@@ -112,7 +112,15 @@
 <section id="standort">
 		<h2>Unser Standort</h2>
 		<p>Hauptstraße 17, 36289 Friedewald, Deutschland</p>
-		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2744.775633017832!2d9.8558723!3d50.8823727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a35705f6c0b6db%3A0xa19618a5045852ec!2sHauptstra%C3%9Fe%2017%2C%2036289%20Friedewald!5e0!3m2!1sde!2sde!4v1684591368406!5m2!1sde!2sde" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+		<div class="map-consent" id="map-consent">
+            <div class="map-consent-placeholder" id="map-consent-placeholder">
+                <p>Zur Anzeige der interaktiven Google-Maps-Karte benötigen wir Ihre Einwilligung. Beim Laden können personenbezogene Daten (z. B. Ihre IP-Adresse) an Google übermittelt und Cookies oder ähnliche Technologien eingesetzt werden. Eine Übermittlung in die USA ist möglich.</p>
+                <p>Weitere Informationen finden Sie in unserer <a href="datenschutz.html#google-maps">Datenschutzerklärung</a>.</p>
+                <button type="button" id="map-consent-accept" class="map-button">Google Maps laden</button>
+            </div>
+            <div id="map-consent-frame" class="map-consent-frame" data-map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2744.775633017832!2d9.8558723!3d50.8823727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a35705f6c0b6db%3A0xa19618a5045852ec!2sHauptstra%C3%9Fe%2017%2C%2036289%20Friedewald!5e0!3m2!1sde!2sde!4v1684591368406!5m2!1sde!2sde" hidden></div>
+            <button type="button" id="map-consent-revoke" class="map-consent-revoke" hidden>Karte deaktivieren</button>
+        </div>
 	<p>
     <a href="https://www.google.com/maps/search/?api=1&query=Hauptstraße+17+36289+Friedewald" target="_blank" rel="noopener" class="map-button">
         Route in Google Maps öffnen
@@ -163,5 +171,35 @@
     </p>
     </footer>
 </div>
+<script>
+    (() => {
+        const accept = document.getElementById('map-consent-accept');
+        const revoke = document.getElementById('map-consent-revoke');
+        const placeholder = document.getElementById('map-consent-placeholder');
+        const frameContainer = document.getElementById('map-consent-frame');
+
+        accept.addEventListener('click', () => {
+            const iframe = document.createElement('iframe');
+            iframe.src = frameContainer.dataset.mapSrc;
+            iframe.title = 'Standort des Ristorante Pizzeria Zum Löwen auf Google Maps';
+            iframe.width = '100%';
+            iframe.height = '300';
+            iframe.style.border = '0';
+            iframe.loading = 'lazy';
+            iframe.allowFullscreen = true;
+            frameContainer.replaceChildren(iframe);
+            frameContainer.hidden = false;
+            placeholder.hidden = true;
+            revoke.hidden = false;
+        });
+
+        revoke.addEventListener('click', () => {
+            frameContainer.replaceChildren();
+            frameContainer.hidden = true;
+            placeholder.hidden = false;
+            revoke.hidden = true;
+        });
+    })();
+</script>
 </body>
 </html>

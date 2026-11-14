@@ -788,3 +788,65 @@ footer {
 .map-consent [hidden] {
     display: none !important;
 }
+
+/* Eigenständige, lokal gespeicherte Standortvorschau ohne Google-Anfragen */
+.map-preview-button {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    padding: 0;
+    margin: 0 auto;
+    position: relative;
+    border: 1px solid rgba(43, 43, 43, 0.2);
+    background: #eee8dc;
+    cursor: pointer;
+    overflow: hidden;
+}
+.map-preview-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 5 / 2;
+    object-fit: cover;
+}
+.map-preview-label {
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    background: #171512;
+    color: #fff;
+    padding: 12px 18px;
+    font-weight: 600;
+    text-align: center;
+    white-space: normal;
+    width: max-content;
+    max-width: calc(100% - 24px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.24);
+}
+.map-preview-button:hover .map-preview-label,
+.map-preview-button:focus-visible .map-preview-label {
+    background: #634a2e;
+}
+.map-preview-button:focus-visible {
+    outline: 3px solid #b79a5b;
+    outline-offset: 3px;
+}
+.map-consent-placeholder {
+    border: 0;
+    background: transparent;
+    padding: 0;
+}
+.map-consent-notice {
+    max-width: 900px;
+    margin: 12px auto 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+@media (max-width: 600px) {
+    .map-preview-label {
+        bottom: 12px;
+        font-size: 0.85rem;
+        padding: 10px 12px;
+    }
+}

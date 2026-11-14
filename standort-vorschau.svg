@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" width="900" height="360" role="img" aria-labelledby="map-title map-desc">
+  <title id="map-title">Standortvorschau Ristorante Pizzeria Zum Löwen</title>
+  <desc id="map-desc">Dekorative, schematische Umgebung mit Markierung des Restaurants in Friedewald. Keine maßstabsgetreue Straßenkarte.</desc>
+  <rect width="900" height="360" fill="#e8e5db"/>
+  <g fill="#d3dfcb" opacity=".93">
+    <path d="M0 0h264l-28 99-95 29L0 104z"/><path d="M720 0h180v132l-102 32-94-76z"/><path d="M0 270l183-29 102 119H0z"/><path d="M710 260l190-46v146H612z"/>
+  </g>
+  <g fill="#dcd3c0">
+    <rect x="292" y="32" width="92" height="48" rx="6" transform="rotate(-8 292 32)"/>
+    <rect x="496" y="26" width="100" height="49" rx="6" transform="rotate(7 496 26)"/>
+    <rect x="675" y="179" width="96" height="60" rx="5"/>
+    <rect x="134" y="174" width="104" height="38" rx="5"/>
+    <rect x="297" y="258" width="80" height="50" rx="5"/>
+    <rect x="508" y="276" width="90" height="42" rx="5"/>
+  </g>
+  <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-35 203C152 167 268 144 394 154S704 212 942 108" stroke-width="43"/>
+    <path d="M356-25C369 86 407 143 427 200S438 329 460 398" stroke-width="36"/>
+    <path d="M87-22C127 72 176 97 247 145S306 261 259 385" stroke-width="24"/>
+    <path d="M711-24C676 74 658 151 701 201S786 309 823 394" stroke-width="23"/>
+  </g>
+  <g fill="none" stroke="#c7bca9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-35 203C152 167 268 144 394 154S704 212 942 108" stroke-width="2" stroke-dasharray="9 10"/>
+    <path d="M356-25C369 86 407 143 427 200S438 329 460 398" stroke-width="2" stroke-dasharray="8 10"/>
+  </g>
+  <g font-family="Arial,Helvetica,sans-serif" fill="#6a6153">
+    <text x="71" y="155" font-size="16">Friedewald</text>
+    <text x="559" y="129" font-size="14" transform="rotate(8 559 129)">Hauptstraße</text>
+    <text x="50" y="331" font-size="12">Schematische Standortvorschau · nicht maßstabsgetreu</text>
+  </g>
+  <g transform="translate(452 138)">
+    <path d="M0-65c-27 0-48 21-48 48 0 35 48 87 48 87s48-52 48-87c0-27-21-48-48-48z" fill="#8b2828" stroke="#fff8ee" stroke-width="5"/>
+    <circle cy="-19" r="18" fill="#fff8ee"/>
+    <circle cy="-19" r="8" fill="#8b2828"/>
+  </g>
+  <g font-family="Arial,Helvetica,sans-serif" text-anchor="middle">
+    <rect x="318" y="220" width="268" height="57" rx="9" fill="#fffaf1" stroke="#a9987d"/>
+    <text x="452" y="243" font-size="17" font-weight="700" fill="#302820">Ristorante Zum Löwen</text>
+    <text x="452" y="263" font-size="13" fill="#554d41">Hauptstraße 17 · Friedewald</text>
+  </g>
+</svg>

@@ -112,51 +112,6 @@ header p {
     color: #F5F5F5;
 }
 
-/* Navigation */
-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-    margin: 0 0 35px 0;
-    overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-    background-color: var(--gold);
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    list-style-type: none;
-    margin: 0;
-    padding: 10px 8px;
-    background-color: var(--gold);
-    white-space: nowrap;
-}
-
-nav ul li {
-    margin: 0;
-    flex: 1 1 auto;
-    text-align: center;
-}
-
-nav ul li a {
-    display: block;
-    color: #2B2B2B;
-    font-size: clamp(0.75rem, 1.4vw, 1.15rem);
-    padding: 10px clamp(4px, 1vw, 18px);
-    font-weight: bold;
-    text-decoration: none;
-}
-
-nav ul li a:hover {
-    background-color: var(--olive);
-    color: #FFFFFF;
-    text-decoration: none;
-}
-
 /* Allgemeine Abschnitte */
 .section {
     opacity: 0;
@@ -653,21 +608,7 @@ footer a:hover,
         margin-top: 6px;
     }
 
-    nav {
-        margin: 0 0 25px 0;
-    }
-
-    nav ul {
-        flex-wrap: nowrap;
-        padding: 8px 4px;
-    }
-
-    nav ul li a {
-        font-size: clamp(0.68rem, 2.2vw, 0.95rem);
-        padding: 8px clamp(2px, 0.9vw, 8px);
-    }
-
-    section {
+section {
         padding: 22px 16px;
     }
 
@@ -722,11 +663,6 @@ header p {
     font-size: clamp(0.95rem, 1.25vw, 1.15rem) !important;
 }
 
-nav ul li a {
-    font-size: clamp(0.75rem, 1.4vw, 1.15rem) !important;
-    padding: 10px clamp(4px, 1vw, 18px) !important;
-}
-
 section h2,
 #bilderwechsel h2,
 #social-media h2,
@@ -777,10 +713,6 @@ footer {
         font-size: clamp(0.8rem, 2vw, 1rem) !important;
     }
 
-    nav ul li a {
-        font-size: clamp(0.68rem, 2.2vw, 0.95rem) !important;
-        padding: 8px clamp(2px, 0.9vw, 8px) !important;
-    }
 }
 
 /* P-Texte größer */

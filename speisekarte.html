@@ -8,7 +8,7 @@
 <meta property="og:description" content="Italienisch genießen in Friedewald: Pizza, Pasta, Antipasti, Fleisch, Fisch und Dessert.">
 <meta property="og:image" content="zumloewenlogo.png">
     <title>Speisekarte – Ristorante</title>
-    <link rel="stylesheet" href="style.css?v=20261123-icons">
+    <link rel="stylesheet" href="style.css?v=20261123-languages">
 	<link rel="icon" href="zumloewenlogo.png" type="image/png">
 </head>
 <body>
@@ -26,6 +26,14 @@
 	</div>
 </header>
 <nav class="primary-nav" aria-label="Hauptnavigation">
+    <div class="language-picker">
+        <label class="sr-only" for="language-select">Sprache wählen</label>
+        <select id="language-select" aria-label="Sprache wählen">
+            <option value="de" selected>Deutsch</option>
+            <option value="en">English</option>
+            <option value="it">Italiano</option>
+        </select>
+    </div>
     <ul>
         <li><a href="index.html"><img class="nav-icon" src="nav-home.svg" width="24" height="24" alt="" aria-hidden="true"><span>Home</span></a></li>
         <li><a href="speisekarte.html" aria-current="page"><img class="nav-icon" src="nav-speisekarte.svg" width="24" height="24" alt="" aria-hidden="true"><span>Speisekarte</span></a></li>
@@ -479,5 +487,8 @@
 		</footer>
 	</div>
 <script src="scroll-top.js" defer></script>
+<script src="translations-en.js" defer></script>
+<script src="translations-it.js" defer></script>
+<script src="language.js" defer></script>
 </body>
 </html>

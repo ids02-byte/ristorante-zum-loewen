@@ -872,3 +872,38 @@ footer {
     }
 }
 
+
+/* Unauffällige Rückkehr zur Startseite auf Rechtstext-Seiten */
+.legal-home-row {
+    max-width: 900px;
+    margin: 0 auto -26px;
+    display: flex;
+    justify-content: flex-start;
+}
+.legal-home-link {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--red);
+    border: 1px solid var(--red);
+    border-radius: 4px;
+    background: var(--cream);
+    text-decoration: none;
+    transition: background-color .2s ease, color .2s ease;
+}
+.legal-home-link:hover {
+    color: #fff;
+    background: var(--red);
+    text-decoration: none;
+}
+.legal-home-link:focus-visible {
+    outline: 3px solid #b79a5b;
+    outline-offset: 3px;
+}
+@media (max-width: 768px) {
+    .legal-home-row {
+        margin-bottom: -14px;
+    }
+}

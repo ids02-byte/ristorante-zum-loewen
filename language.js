@@ -15,6 +15,8 @@
     document.documentElement.lang = language;
     if (select) {
         select.value = language;
+        const code = document.querySelector('.language-switch-code');
+        if (code) code.textContent = language.toUpperCase();
         select.setAttribute('aria-label', l.chooser);
         const hiddenLabel = document.querySelector('label[for="language-select"]');
         if (hiddenLabel) hiddenLabel.textContent = l.chooser;

@@ -27,6 +27,7 @@ window.siteTranslations.it = {
   "Folge uns auf": "Seguici",
   "Impressum": "Note legali",
   "Datenschutz": "Privacy",
+  "Informationen zur Einwilligung in die interaktive Google-Karte finden Sie in unserer": "Le informazioni sul consenso all'uso della mappa interattiva di Google sono disponibili nella nostra",
   "Datenschutzerklärung": "Informativa sulla privacy",
   "Angaben gemäß § 5 DDG": "Informazioni ai sensi del § 5 DDG (legge tedesca sui servizi digitali)",
   "Deutschland": "Germania",

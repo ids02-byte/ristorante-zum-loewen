@@ -7,9 +7,9 @@
     const select = document.getElementById('language-select');
     const dictionary = language === 'de' ? {} : (window.siteTranslations && window.siteTranslations[language]) || {};
     const labels = {
-        de: {chooser: 'Sprache wählen', home: 'Zur Startseite', phone: 'Jetzt telefonisch reservieren', activate: 'Interaktive Karte aktivieren – dabei können Daten an Google übertragen werden', privacy: 'Beim Aktivieren wird Google Maps geladen. Details zum Datenschutz finden Sie in der Datenschutzerklärung.', preview: 'Schematische Standortvorschau des Ristorante Pizzeria Zum Löwen in Friedewald', map: 'Standort des Ristorante Pizzeria Zum Löwen auf Google Maps', facebook: 'Facebook', instagram: 'Instagram'},
-        en: {chooser: 'Select language', home: 'Go to homepage', phone: 'Reserve by phone', activate: 'Activate interactive map – some data may be sent to Google', privacy: 'Activating this map loads Google Maps. See our privacy policy for details.', preview: 'Schematic location preview of Ristorante Pizzeria Zum Löwen in Friedewald', map: 'Ristorante Pizzeria Zum Löwen location on Google Maps', facebook: 'Facebook', instagram: 'Instagram'},
-        it: {chooser: 'Seleziona la lingua', home: 'Torna alla pagina iniziale', phone: 'Prenota per telefono', activate: 'Attiva la mappa interattiva – alcuni dati potrebbero essere inviati a Google', privacy: 'L’attivazione carica Google Maps. Ulteriori dettagli nell’informativa sulla privacy.', preview: 'Anteprima schematica della posizione del Ristorante Pizzeria Zum Löwen a Friedewald', map: 'Posizione del Ristorante Pizzeria Zum Löwen su Google Maps', facebook: 'Facebook', instagram: 'Instagram'}
+        de: {chooser: 'Sprache wählen', phone: 'Jetzt telefonisch reservieren', activate: 'Interaktive Karte aktivieren – dabei können Daten an Google übertragen werden', privacy: 'Beim Aktivieren wird Google Maps geladen. Details zum Datenschutz finden Sie in der Datenschutzerklärung.', preview: 'Schematische Standortvorschau des Ristorante Pizzeria Zum Löwen in Friedewald', map: 'Standort des Ristorante Pizzeria Zum Löwen auf Google Maps', facebook: 'Facebook', instagram: 'Instagram'},
+        en: {chooser: 'Select language', phone: 'Reserve by phone', activate: 'Activate interactive map – some data may be sent to Google', privacy: 'Activating this map loads Google Maps. See our privacy policy for details.', preview: 'Schematic location preview of Ristorante Pizzeria Zum Löwen in Friedewald', map: 'Ristorante Pizzeria Zum Löwen location on Google Maps', facebook: 'Facebook', instagram: 'Instagram'},
+        it: {chooser: 'Seleziona la lingua', phone: 'Prenota per telefono', activate: 'Attiva la mappa interattiva – alcuni dati potrebbero essere inviati a Google', privacy: 'L’attivazione carica Google Maps. Ulteriori dettagli nell’informativa sulla privacy.', preview: 'Anteprima schematica della posizione del Ristorante Pizzeria Zum Löwen a Friedewald', map: 'Posizione del Ristorante Pizzeria Zum Löwen su Google Maps', facebook: 'Facebook', instagram: 'Instagram'}
     };
     const l = labels[language];
     document.documentElement.lang = language;
@@ -53,10 +53,27 @@
         };
         const filename = location.pathname.split('/').pop() || 'index.html';
         document.title = titles[language][filename] || document.title;
+        const descriptions = {
+            en: {
+                'index.html': 'Ristorante Pizzeria Zum Löwen in Friedewald – Italian cuisine, stone-baked pizza, pasta and more.',
+                'speisekarte.html': 'Explore the menu at Ristorante Pizzeria Zum Löwen in Friedewald – pizza, pasta, antipasti, meat, fish and desserts.',
+                'impressum.html': 'Legal notice and contact information for Ristorante Pizzeria Zum Löwen in Friedewald.',
+                'datenschutz.html': 'Privacy policy of Ristorante Pizzeria Zum Löwen in Friedewald, including information about hosting, contact and Google Maps.'
+            },
+            it: {
+                'index.html': 'Ristorante Pizzeria Zum Löwen a Friedewald – cucina italiana, pizza cotta nel forno a pietra, pasta e molto altro.',
+                'speisekarte.html': 'Scopri il menù del Ristorante Pizzeria Zum Löwen a Friedewald – pizza, pasta, antipasti, carne, pesce e dessert.',
+                'impressum.html': 'Note legali e contatti del Ristorante Pizzeria Zum Löwen a Friedewald.',
+                'datenschutz.html': 'Informativa sulla privacy del Ristorante Pizzeria Zum Löwen a Friedewald, con dettagli su hosting, contatti e Google Maps.'
+            }
+        };
+        const description = descriptions[language][filename];
         const desc = document.querySelector('meta[name="description"]');
-        if (desc) desc.content = language === 'en'
-            ? 'Ristorante Pizzeria Zum Löwen in Friedewald – Italian cuisine, stone-baked pizza, pasta and more.'
-            : 'Ristorante Pizzeria Zum Löwen a Friedewald – cucina italiana, pizza cotta nel forno a pietra, pasta e molto altro.';
+        if (desc && description) desc.content = description;
+        const ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.content = titles[language][filename] || ogTitle.content;
+        const ogDesc = document.querySelector('meta[property="og:description"]');
+        if (ogDesc && description) ogDesc.content = description;
     }
     // Die aktuelle Sprachwahl auch bei Seitenwechsel und Links zu den Rechtstexten beibehalten.
     document.querySelectorAll('a[href]').forEach(a => {
@@ -67,8 +84,6 @@
         else url.searchParams.set('lang', language);
         a.setAttribute('href', url.pathname.split('/').pop() + url.search + url.hash);
     });
-    const home = document.querySelectorAll('.legal-home-link');
-    home.forEach(el => { el.setAttribute('aria-label', l.home); el.title = l.home; });
     document.querySelectorAll('.phone-float, .reserve-button').forEach(el => el.setAttribute('aria-label', l.phone));
     const accept = document.getElementById('map-consent-accept');
     if (accept) { accept.setAttribute('aria-label', l.activate); accept.title = l.privacy; }

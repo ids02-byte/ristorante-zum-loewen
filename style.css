@@ -800,7 +800,7 @@ footer {
     margin: 0 auto;
     border: 1px solid rgba(43, 43, 43, 0.2);
 }
-.map-consent-activate {
+.map-consent-placeholder .map-consent-activate {
     display: inline-block;
     margin-top: 12px;
     padding: 10px 18px;

@@ -67,23 +67,6 @@
         else url.searchParams.set('lang', language);
         a.setAttribute('href', url.pathname.split('/').pop() + url.search + url.hash);
     });
-    // Icon-Navigation bleibt auch ohne sichtbare Beschriftung barrierefrei und dreisprachig.
-    const navNames = {
-        de: {home: 'Zur Startseite', menu: 'Speisekarte öffnen'},
-        en: {home: 'Go to homepage', menu: 'Open menu'},
-        it: {home: 'Vai alla pagina iniziale', menu: 'Apri il menù'}
-    };
-    const navLabels = navNames[language];
-    for (const [selector, label] of [
-        ['.nav-home-link', navLabels.home],
-        ['.nav-menu-link', navLabels.menu]
-    ]) {
-        const link = document.querySelector(selector);
-        if (link) {
-            link.setAttribute('aria-label', label);
-            link.title = label;
-        }
-    }
     const home = document.querySelectorAll('.legal-home-link');
     home.forEach(el => { el.setAttribute('aria-label', l.home); el.title = l.home; });
     document.querySelectorAll('.phone-float, .reserve-button').forEach(el => el.setAttribute('aria-label', l.phone));

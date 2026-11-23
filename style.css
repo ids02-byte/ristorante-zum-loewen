@@ -850,3 +850,46 @@ footer {
         padding: 10px 12px;
     }
 }
+
+/* Schwebender Button: zurueck zum Seitenanfang */
+.back-to-top {
+    position: fixed;
+    bottom: 22px;
+    left: 22px;
+    z-index: 2999;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    border: 1px solid #b79a5b;
+    border-radius: 50%;
+    background: #8b1e1e;
+    color: #fff;
+    font: 700 27px/1 Georgia, "Times New Roman", serif;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.24);
+    cursor: pointer;
+    transition: background-color .2s ease, transform .2s ease;
+}
+.back-to-top[hidden] {
+    display: none !important;
+}
+.back-to-top:hover {
+    background: #6d8a04;
+    transform: translateY(-2px);
+}
+.back-to-top:focus-visible {
+    outline: 3px solid #b79a5b;
+    outline-offset: 3px;
+}
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 20px;
+        left: 18px;
+        width: 50px;
+        height: 50px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .back-to-top {
+        transition: none;
+    }
+}

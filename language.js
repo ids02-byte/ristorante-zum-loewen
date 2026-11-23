@@ -70,6 +70,51 @@
     document.querySelectorAll('.phone-float, .reserve-button').forEach(el => el.setAttribute('aria-label', l.phone));
     const accept = document.getElementById('map-consent-accept');
     if (accept) { accept.setAttribute('aria-label', l.activate); accept.title = l.privacy; }
+    // Auch Bildbeschreibungen und der Scroll-Button werden lokalisiert.
+    const imageAlts = {
+        en: {
+            'zum löwen logo': 'Zum Löwen restaurant logo',
+            ' pizza bild': 'Pizza at Ristorante Zum Löwen',
+            'Linkes Bild': 'Zum Löwen restaurant logo',
+            'Rechtes Bild': 'Pizza at Ristorante Zum Löwen',
+            'Logo Ristorante Pizzeria Zum Löwen': 'Ristorante Pizzeria Zum Löwen logo',
+            'Pizza im Ristorante Pizzeria Zum Löwen': 'Pizza at Ristorante Pizzeria Zum Löwen',
+            'Restaurant Ausenbereich': 'Restaurant terrace',
+            'Grünesaal': 'Green dining room',
+            'kammienzimmer': 'Fireplace dining room',
+            'Pizza vom Steinofen': 'Stone-baked pizza',
+            'Antipasti & Salate': 'Antipasti & salads',
+            'Fleisch': 'Meat dishes',
+            'Fisch': 'Fish dishes'
+        },
+        it: {
+            'zum löwen logo': 'Logo del ristorante Zum Löwen',
+            ' pizza bild': 'Pizza del Ristorante Zum Löwen',
+            'Linkes Bild': 'Logo del ristorante Zum Löwen',
+            'Rechtes Bild': 'Pizza del Ristorante Zum Löwen',
+            'Logo Ristorante Pizzeria Zum Löwen': 'Logo del Ristorante Pizzeria Zum Löwen',
+            'Pizza im Ristorante Pizzeria Zum Löwen': 'Pizza del Ristorante Pizzeria Zum Löwen',
+            'Restaurant Ausenbereich': 'Terrazza del ristorante',
+            'Grünesaal': 'Sala verde',
+            'kammienzimmer': 'Sala con camino',
+            'Pizza vom Steinofen': 'Pizza cotta nel forno a pietra',
+            'Antipasti & Salate': 'Antipasti e insalate',
+            'Fleisch': 'Piatti di carne',
+            'Fisch': 'Piatti di pesce'
+        }
+    };
+    document.querySelectorAll('img[alt]').forEach(img => {
+        if (language !== 'de') {
+            const translated = imageAlts[language][img.getAttribute('alt')];
+            if (translated) img.alt = translated;
+        }
+    });
+    const up = document.querySelector('.back-to-top');
+    if (up) {
+        const text = language === 'en' ? 'Back to top' : language === 'it' ? 'Torna all’inizio' : 'Zurück nach oben';
+        up.title = text;
+        up.setAttribute('aria-label', text);
+    }
     const preview = document.querySelector('.map-preview-image');
     if (preview) preview.alt = l.preview;
     // Das bestehende Maps-Skript erzeugt das iFrame erst nach Einwilligung.

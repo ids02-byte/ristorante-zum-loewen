@@ -53,10 +53,27 @@
         };
         const filename = location.pathname.split('/').pop() || 'index.html';
         document.title = titles[language][filename] || document.title;
+        const descriptions = {
+            en: {
+                'index.html': 'Ristorante Pizzeria Zum Löwen in Friedewald – Italian cuisine, stone-baked pizza, pasta and more.',
+                'speisekarte.html': 'Explore the menu at Ristorante Pizzeria Zum Löwen in Friedewald – pizza, pasta, antipasti, meat, fish and desserts.',
+                'impressum.html': 'Legal notice and contact information for Ristorante Pizzeria Zum Löwen in Friedewald.',
+                'datenschutz.html': 'Privacy policy of Ristorante Pizzeria Zum Löwen in Friedewald, including information about hosting, contact and Google Maps.'
+            },
+            it: {
+                'index.html': 'Ristorante Pizzeria Zum Löwen a Friedewald – cucina italiana, pizza cotta nel forno a pietra, pasta e molto altro.',
+                'speisekarte.html': 'Scopri il menù del Ristorante Pizzeria Zum Löwen a Friedewald – pizza, pasta, antipasti, carne, pesce e dessert.',
+                'impressum.html': 'Note legali e contatti del Ristorante Pizzeria Zum Löwen a Friedewald.',
+                'datenschutz.html': 'Informativa sulla privacy del Ristorante Pizzeria Zum Löwen a Friedewald, con dettagli su hosting, contatti e Google Maps.'
+            }
+        };
+        const description = descriptions[language][filename];
         const desc = document.querySelector('meta[name="description"]');
-        if (desc) desc.content = language === 'en'
-            ? 'Ristorante Pizzeria Zum Löwen in Friedewald – Italian cuisine, stone-baked pizza, pasta and more.'
-            : 'Ristorante Pizzeria Zum Löwen a Friedewald – cucina italiana, pizza cotta nel forno a pietra, pasta e molto altro.';
+        if (desc && description) desc.content = description;
+        const ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.content = titles[language][filename] || ogTitle.content;
+        const ogDesc = document.querySelector('meta[property="og:description"]');
+        if (ogDesc && description) ogDesc.content = description;
     }
     // Die aktuelle Sprachwahl auch bei Seitenwechsel und Links zu den Rechtstexten beibehalten.
     document.querySelectorAll('a[href]').forEach(a => {

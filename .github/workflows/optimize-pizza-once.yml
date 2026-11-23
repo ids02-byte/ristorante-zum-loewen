@@ -1,0 +1,76 @@
+name: Optimize pizza header image (one-time)
+on:
+  push:
+    branches:
+      - perf/optimize-pizza-image-20261123
+    paths:
+      - .github/workflows/optimize-pizza-once.yml
+permissions:
+  contents: write
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Install Pillow
+        run: python -m pip install --user Pillow
+      - name: Optimize image and update HTML
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageOps
+          import io, re
+          original = Path("logopizza.jpg")
+          if not original.is_file():
+              raise RuntimeError("Missing original header image logopizza.jpg")
+          old_size = original.stat().st_size
+          with Image.open(original) as img:
+              img = ImageOps.exif_transpose(img)
+              width, height = img.size
+              img = img.convert("RGB")
+              if width > 640:
+                  img = img.resize((640, round(height * 640 / width)), Image.Resampling.LANCZOS)
+              target_width, target_height = img.size
+              data = io.BytesIO()
+              img.save(data, format="WEBP", quality=82, method=6)
+          new_bytes = data.getvalue()
+          print(f"Original: {old_size} bytes; {width}x{height}")
+          print(f"WebP: {len(new_bytes)} bytes; {target_width}x{target_height}")
+          if len(new_bytes) >= old_size:
+              print("Original already smaller than the generated WebP; keep JPG.")
+              image_name = "logopizza.jpg"
+          else:
+              Path("logopizza.webp").write_bytes(new_bytes)
+              image_name = "logopizza.webp"
+          count = 0
+          for filename in ["index.html", "speisekarte.html", "impressum.html", "datenschutz.html"]:
+              path = Path(filename)
+              source = path.read_bytes()
+              pattern = rb'<img\s+src="logopizza\.jpg"\s+alt="([^"]*)"\s+class="header-imageright">'
+              new_html = (f'<img src="{image_name}" alt="\\1" class="header-imageright" '
+                          f'width="{target_width}" height="{target_height}" '
+                          'loading="eager" fetchpriority="high" decoding="async">')
+              # Use callable to avoid regex escape ambiguities with text.
+              replacement = lambda m: (f'<img src="{image_name}" alt="{m.group(1).decode("utf-8")}" '
+                                      f'class="header-imageright" width="{target_width}" height="{target_height}" '
+                                      'loading="eager" fetchpriority="high" decoding="async">').encode("utf-8")
+              transformed, occurrences = re.subn(pattern, replacement, source)
+              if occurrences != 1:
+                  raise RuntimeError(f"Expected exactly one pizza image in {filename}; found {occurrences}")
+              path.write_bytes(transformed)
+              count += occurrences
+          print(f"Updated {count} HTML image tags.")
+          PY
+      - name: Commit optimized asset and clean up one-time workflow
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/optimize-pizza-once.yml
+          git add index.html speisekarte.html impressum.html datenschutz.html
+          if [ -f logopizza.webp ]; then git add logopizza.webp; fi
+          git commit -m "perf: optimize pizza header image and prioritize loading"
+          git push origin HEAD:perf/optimize-pizza-image-20261123

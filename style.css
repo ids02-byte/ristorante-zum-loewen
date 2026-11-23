@@ -875,6 +875,7 @@ footer {
 
 /* Goldene Hauptnavigation: rechts ausgerichtet mit Icons */
 .primary-nav {
+    --nav-control-height: 54px;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -904,6 +905,7 @@ footer {
 }
 .primary-nav a {
     display: flex;
+    height: var(--nav-control-height);
     align-items: center;
     justify-content: center;
     gap: 9px;
@@ -936,6 +938,7 @@ footer {
 }
 @media (max-width: 600px) {
     .primary-nav {
+        --nav-control-height: 42px;
         margin-bottom: 20px;
     }
     .primary-nav ul {
@@ -977,7 +980,7 @@ footer {
     justify-content: center;
     align-items: center;
     width: 76px;
-    height: 58px;
+    height: var(--nav-control-height);
     border: 1px solid #B79A5B;
     border-radius: 18px;
     background: var(--dark);
@@ -1013,7 +1016,7 @@ footer {
     }
     .language-switch {
         width: 62px;
-        height: 45px;
+        height: var(--nav-control-height);
         border-radius: 14px;
     }
     .language-switch-code {

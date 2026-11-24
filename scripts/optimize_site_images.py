@@ -150,18 +150,18 @@ def rewrite_image(match: re.Match[str]) -> str:
 
 for page in PAGES:
     path = ROOT / page
-    html = path.read_text(encoding="utf-8")
+    html = path.read_bytes().decode("utf-8")
     html = IMG_TAG.sub(rewrite_image, html)
     # 96px PNG icon avoids requesting the much larger original restaurant logo.
     html = html.replace('href="zumloewenlogo.png" type="image/png"',
                         'href="assets/img/favicon-96.png" type="image/png"')
-    path.write_text(html, encoding="utf-8", newline="")
+    path.write_bytes(html.encode("utf-8"))
 
 css_path = ROOT / "style.css"
-css = css_path.read_text(encoding="utf-8")
+css = css_path.read_bytes().decode("utf-8")
 if "haupttuer.jpeg" in mapping:
     css = css.replace('url("haupttuer.jpeg")', f'url("{mapping["haupttuer.jpeg"]["src"]}")')
-css_path.write_text(css, encoding="utf-8", newline="")
+css_path.write_bytes(css.encode("utf-8"))
 
 # Verify every local image referenced by HTML and CSS really exists.
 for page in PAGES:

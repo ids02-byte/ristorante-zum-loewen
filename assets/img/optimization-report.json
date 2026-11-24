@@ -1,0 +1,112 @@
+{
+  "note": "Original files retained; SVGs and existing logopizza.webp kept unchanged.",
+  "images": [
+    {
+      "original": "terasse2.jpeg",
+      "src": "assets/img/terasse2-large.webp",
+      "small": "assets/img/terasse2-small.webp",
+      "width": 1800,
+      "height": 832,
+      "small_width": 800,
+      "small_height": 370,
+      "original_bytes": 2088977,
+      "optimized_bytes": 327694,
+      "small_bytes": 79526,
+      "type": "gallery"
+    },
+    {
+      "original": "terasse1.jpg",
+      "src": "assets/img/terasse1-large.webp",
+      "small": "assets/img/terasse1-small.webp",
+      "width": 1800,
+      "height": 1350,
+      "small_width": 800,
+      "small_height": 600,
+      "original_bytes": 4548391,
+      "optimized_bytes": 729690,
+      "small_bytes": 158336,
+      "type": "gallery"
+    },
+    {
+      "original": "guenezimmer.jpg",
+      "src": "assets/img/guenezimmer-large.webp",
+      "small": "assets/img/guenezimmer-small.webp",
+      "width": 1800,
+      "height": 1350,
+      "small_width": 800,
+      "small_height": 600,
+      "original_bytes": 3276054,
+      "optimized_bytes": 368272,
+      "small_bytes": 89258,
+      "type": "gallery"
+    },
+    {
+      "original": "rundetischinnen.jpg",
+      "src": "assets/img/rundetischinnen-large.webp",
+      "small": "assets/img/rundetischinnen-small.webp",
+      "width": 1800,
+      "height": 1350,
+      "small_width": 800,
+      "small_height": 600,
+      "original_bytes": 3814087,
+      "optimized_bytes": 727798,
+      "small_bytes": 135692,
+      "type": "gallery"
+    },
+    {
+      "original": "kammienzimmer.jpg",
+      "kept_original": true,
+      "original_bytes": 192175
+    },
+    {
+      "original": "kammienzimmervorne.png",
+      "src": "assets/img/kammienzimmervorne-large.webp",
+      "small": "assets/img/kammienzimmervorne-small.webp",
+      "width": 1448,
+      "height": 1086,
+      "small_width": 800,
+      "small_height": 600,
+      "original_bytes": 2763458,
+      "optimized_bytes": 320270,
+      "small_bytes": 123132,
+      "type": "gallery"
+    },
+    {
+      "original": "zumloewenlogo.png",
+      "src": "assets/img/zumloewenlogo.webp",
+      "width": 800,
+      "height": 669,
+      "original_bytes": 312384,
+      "optimized_bytes": 93470,
+      "type": "single"
+    },
+    {
+      "original": "haupttuer.jpeg",
+      "src": "assets/img/haupttuer.webp",
+      "width": 861,
+      "height": 582,
+      "original_bytes": 156492,
+      "optimized_bytes": 98276,
+      "type": "single"
+    },
+    {
+      "original": "insta.png",
+      "src": "assets/img/insta.webp",
+      "width": 180,
+      "height": 180,
+      "original_bytes": 1152390,
+      "optimized_bytes": 29056,
+      "type": "single"
+    },
+    {
+      "original": "facebook.png",
+      "src": "assets/img/facebook.webp",
+      "width": 180,
+      "height": 180,
+      "original_bytes": 10265,
+      "optimized_bytes": 3580,
+      "type": "single"
+    }
+  ],
+  "favicon": "assets/img/favicon-96.png"
+}

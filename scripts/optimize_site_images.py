@@ -63,8 +63,13 @@ for source in GALLERY:
     large = OUT / f"{stem}-large.webp"
     sw, sh, sb = save_webp(img, small, (800, 1000), quality=87)
     lw, lh, lb = save_webp(img, large, (1800, 1800), quality=87)
-    if lb >= original_size:
-        raise RuntimeError(f"Unexpectedly larger gallery file: {source}")
+    if lb >= original_size * 0.95:
+        # For an already tiny/compressed photo, keep the smaller original instead.
+        small.unlink()
+        large.unlink()
+        dimensions[source] = (img.width, img.height)
+        report.append({"original": source, "kept_original": True, "original_bytes": original_size})
+        continue
     mapping[source] = {
         "src": large.relative_to(ROOT).as_posix(),
         "small": small.relative_to(ROOT).as_posix(),
